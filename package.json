@@ -1,0 +1,36 @@
+{
+  "name": "eleventy-plugin-feeds",
+  "version": "0.0.1",
+  "description": "An Eleventy plugin to generate feeds for reader apps.",
+  "main": ".eleventy.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "feed": "^4.2.2"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1"
+  },
+  "scripts": {
+    "test": "cd test && npx @11ty/eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrettMN/eleventy-plugin-feeds.git"
+  },
+  "keywords": [
+    "eleventy",
+    "eleventy-plugin"
+  ],
+  "author": {
+    "name": "Brett M. Nelson",
+    "email": "brett@wipdeveloper.com",
+    "url": "https://wipdeveloper.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BrettMN/eleventy-plugin-feeds/issues"
+  },
+  "homepage": "https://github.com/BrettMN/eleventy-plugin-feeds#readme"
+}
