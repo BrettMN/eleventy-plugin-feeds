@@ -1,12 +1,15 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 
-module.exports = function (eleventyConfig, options = {}) {
+module.exports = function (
+  eleventyConfig,
+  { src, dir: dirForFeeds = 'feeds-plugin' }
+) {
   eleventyConfig.on('beforeBuild', () => {
     // Run me before the build starts
-    fs.copyFileSync('./src/**.*', eleventyConfig.dir.input);
-  });
 
-  return {
-    dir: { input: 'src' },
-  };
+    if (fs.pathExistsSync(`${src}/${dirForFeeds}`) === false) {
+      console.log('copy feeds');
+      fs.copySync(`${__dirname}/src/`, `${src}/${dirForFeeds}`);
+    }
+  });
 };

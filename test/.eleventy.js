@@ -1,7 +1,7 @@
-const feedsPlugin = require('../src/feeds.helper');
+const feedsPlugin = require('../.eleventy.js');
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPlugin(feedsPlugin);
+  eleventyConfig.addPlugin(feedsPlugin, { src: __dirname + '/src/' });
   // You can return your Config object (optional).
   return {
     dir: {
