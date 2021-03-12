@@ -13,7 +13,7 @@ class Json {
   render(data) {
     const feeds = data.feedsPlugin.populateFeedList(
       data.feedsPlugin.data,
-      data.collections.post
+      data.collections[data.feedsPlugin.data.collectionName]
     );
 
     return feeds.json();

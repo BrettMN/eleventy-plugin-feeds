@@ -78,11 +78,11 @@ function makeFeed(
 }
 
 function populateFeedList(
-  { feed, siteUrl, author, imagePropertyName },
-  postsList
+  { collectionName, feed, siteUrl, author, imagePropertyName },
+  collection
 ) {
   if (feed.items.length === 0) {
-    postsList.forEach((post) => {
+    collection.forEach((post) => {
       let contentToUse = post.templateContent;
 
       let postFeedItem = {
@@ -96,11 +96,7 @@ function populateFeedList(
         date: new Date(post.date),
       };
 
-      console.log('here', { imagePropertyName }, post.data);
-      // Object.keys(post).forEach(console.log);
-
       if (post.data[imagePropertyName]) {
-        console.log(post.data[imagePropertyName]);
         postFeedItem.image = `${siteUrl}/${post.data[imagePropertyName]}`;
       }
 

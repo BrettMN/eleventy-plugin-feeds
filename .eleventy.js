@@ -41,7 +41,7 @@ module.exports = function (
   feed.addContributor(author);
 
   eleventyConfig.addGlobalData('feedsPlugin', {
-    data: { feed, siteUrl, author, imagePropertyName },
+    data: { collectionName, feed, siteUrl, author, imagePropertyName },
     populateFeedList: helper.populateFeedList,
   });
 
