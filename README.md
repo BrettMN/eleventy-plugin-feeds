@@ -14,6 +14,8 @@ Works for 1 author sites currently.
 eleventyConfig.addPlugin(feedsPlugin, {
   // source directory for your project.  Used to copy template into the `dirForFeeds`
   src: __dirname + `/src/`,
+  // Name of collection to add to feed
+  collectionName: 'post',
   // directory that will hold the templates for the feeds.
   dirForFeeds: 'feeds-plugin-test',
   // Full site url without a trailing slash.

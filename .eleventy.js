@@ -7,6 +7,7 @@ module.exports = function (
   eleventyConfig,
   {
     src = '',
+    collectionName = 'post',
     dirForFeeds = 'feeds-plugin',
     siteUrl = '',
     siteTitle = '',
