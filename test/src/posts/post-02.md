@@ -1,6 +1,7 @@
 ---
 title: test two
 tags: post
+featuredImage: two.png
 ---
 
 I had to face my fear…that was more important than just going on living…. I don’t like it. Geronimo! There’s always something to look at if you open your eyes! And everybody lives, Rose! Everybody lives! I need more days like this! Go on, ask me anything; I’m on fire! Goodbye, Clara. Alright? Of course I’m alright, my child. You know, I am so constantly outwitting the opposition, I tend to forget the delights and satisfaction of the gentle art of fisticuffs. Well, I’m still not the man I used to be… thank goodness.

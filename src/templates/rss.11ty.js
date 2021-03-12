@@ -1,4 +1,4 @@
-const feedHelper = require('./feeds.helper');
+// const feedHelper = require('./feeds.helper');
 
 class Rss {
   // or `async data() {`
@@ -11,8 +11,10 @@ class Rss {
   }
 
   render(data) {
-    return 'test';
-    const feeds = feedHelper(data.collections.post);
+    const feeds = data.feedsPlugin.populateFeedList(
+      data.feedsPlugin.data,
+      data.collections.post
+    );
 
     return feeds.rss();
   }
