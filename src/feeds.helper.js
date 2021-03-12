@@ -49,32 +49,35 @@ function populateFeedList(
   const url = formatUrlBase(siteUrl);
   if (feed.items.length === 0) {
     collection.forEach((post) => {
-      let contentToUse = post.templateContent;
-
-      const urlPath = formatUrlPath(post.url);
-
-      let postFeedItem = {
-        title: stripHtml(post.data.title).replace('&#58;', ':'),
-        id: `${url}${urlPath}`,
-        link: `${url}${urlPath}`,
-        description: stripHtml(contentToUse).substring(0, 200),
-        content: contentToUse,
-        author: [author],
-        contributor: [],
-        date: new Date(post.date),
-      };
-
-      if (post.data[imagePropertyName]) {
-        postFeedItem.image = `${url}${formatUrlPath(
-          post.data[imagePropertyName]
-        )}`;
-      }
+      let postFeedItem = makeFeedItem(post, url, author, imagePropertyName);
 
       feed.addItem(postFeedItem);
     });
   }
 
   return { rss: feed.rss2, atom: feed.atom1, json: feed.json1 };
+}
+
+function makeFeedItem(post, url, author, imagePropertyName) {
+  let contentToUse = post.templateContent;
+
+  const urlPath = formatUrlPath(post.url);
+
+  let postFeedItem = {
+    title: stripHtml(post.data.title).replace('&#58;', ':'),
+    id: `${url}${urlPath}`,
+    link: `${url}${urlPath}`,
+    description: stripHtml(contentToUse).substring(0, 200),
+    content: contentToUse.replace(/src="\//gi, `src="${url}/`),
+    author: [author],
+    contributor: [],
+    date: new Date(post.date),
+  };
+
+  if (post.data[imagePropertyName]) {
+    postFeedItem.image = `${url}${formatUrlPath(post.data[imagePropertyName])}`;
+  }
+  return postFeedItem;
 }
 
 function formatUrlBase(url) {
