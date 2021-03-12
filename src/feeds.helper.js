@@ -58,7 +58,7 @@ function populateFeedList(
         id: `${url}${urlPath}`,
         link: `${url}${urlPath}`,
         description: stripHtml(contentToUse).substring(0, 200),
-        content: post.content,
+        content: contentToUse,
         author: [author],
         contributor: [],
         date: new Date(post.date),
