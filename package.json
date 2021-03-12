@@ -1,6 +1,6 @@
 {
   "name": "eleventy-plugin-feeds",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An Eleventy plugin to generate feeds for reader apps.",
   "main": ".eleventy.js",
   "directories": {
@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "feed": "^4.2.2",
-    "fs-extra": "^9.1.0"
+    "fs-extra": "^9.1.0",
+    "eleventy-plugin-wipdeveloper-tools": "^0.1.1"
   },
   "devDependencies": {
     "@11ty/eleventy": "github:11ty/eleventy#canary",
