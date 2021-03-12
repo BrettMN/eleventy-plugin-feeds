@@ -68,7 +68,7 @@ function makeFeedItem(post, url, author, imagePropertyName) {
     id: `${url}${urlPath}`,
     link: `${url}${urlPath}`,
     description: stripHtml(contentToUse).substring(0, 200),
-    content: contentToUse.replace(/src="\//g, `src="${url}/`),
+    content: contentToUse.replace(/src="\//g, `src="${url}`),
     author: [author],
     contributor: [],
     date: new Date(post.date),
