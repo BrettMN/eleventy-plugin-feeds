@@ -11,12 +11,11 @@ class Atom {
   }
 
   render(data) {
-    const feeds = data.feedsPlugin.populateFeedList(
-      data.feedsPlugin.data,
-      data.collections[data.feedsPlugin.data.collectionName]
-    );
+    const feedsPlugin = this.feedsPluginData();
 
-    return feeds.atom();
+    return feedsPlugin.helper
+      .feed(feedsPlugin, data.collections[feedsPlugin.collectionName])
+      .atom();
   }
 }
 

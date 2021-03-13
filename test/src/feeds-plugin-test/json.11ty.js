@@ -11,12 +11,12 @@ class Json {
   }
 
   render(data) {
-    const feeds = data.feedsPlugin.populateFeedList(
-      data.feedsPlugin.data,
-      data.collections.post
-    );
+    // const feeds = this.feedsPluginData().populateFeedList(
+    //   data.feedsPluginData().data,
+    //   data.collections[data.feedsPluginData().data.collectionName]
+    // );
 
-    return feeds.json();
+    return 'feeds.json();';
   }
 }
 

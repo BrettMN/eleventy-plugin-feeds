@@ -1,25 +1,25 @@
 {
   "name": "eleventy-plugin-feeds",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "An Eleventy plugin to generate feeds for reader apps.",
   "main": ".eleventy.js",
   "directories": {
     "test": "test"
   },
   "dependencies": {
+    "eleventy-plugin-wipdeveloper-tools": "^0.1.1",
     "feed": "^4.2.2",
-    "fs-extra": "^9.1.0",
-    "eleventy-plugin-wipdeveloper-tools": "^0.1.1"
+    "fs-extra": "^9.1.0"
   },
   "devDependencies": {
-    "@11ty/eleventy": "github:11ty/eleventy#canary",
+    "@11ty/eleventy": "0.11.1",
     "del-cli": "^3.0.1",
     "eleventy-plugin-wipdeveloper-tools": "^0.1.1"
   },
   "scripts": {
     "test": "npm run test:clean && npm run test:run",
     "test:run": "cd test && npx @11ty/eleventy",
-    "test:clean": "del-cli test/dist/ && del-cli test/src/feeds-plugin/"
+    "test:clean": "del-cli test/dist/ && del-cli test/src/feeds-plugin-test/"
   },
   "repository": {
     "type": "git",

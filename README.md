@@ -2,6 +2,8 @@
 
 An Eleventy plugin to generate feeds.
 
+Works with 11ty version 0.11.1
+
 Works for 1 author sites currently.
 
 ## Set Up
@@ -45,6 +47,10 @@ eleventyConfig.addPlugin(feedsPlugin, {
 });
 ```
 
-##
+## Built With
 
-Build with [Feed](https://www.npmjs.com/package/feed)
+[Feed](https://www.npmjs.com/package/feed)
+
+## How to Upgrade
+
+Delete the `dirForFeeds` directory after updates to get the latest changes in your site.

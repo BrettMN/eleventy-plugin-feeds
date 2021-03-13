@@ -1,8 +1,6 @@
 const fs = require('fs-extra');
 const helper = require('./src/feeds.helper');
 
-// let feed;
-
 module.exports = function (
   eleventyConfig,
   {
@@ -23,9 +21,9 @@ module.exports = function (
     imagePropertyName = '',
   }
 ) {
-  let author = helper.makeAuthor(authorName, authorEmail, authorUrl);
+  let author = { name: authorName, email: authorEmail, link: authorUrl };
 
-  feed = helper.makeFeed(
+  const feedInfo = {
     siteTitle,
     siteDescription,
     siteUrl,
@@ -33,23 +31,26 @@ module.exports = function (
     siteImage,
     favicon,
     copyright,
-    author
-  );
+    categories,
+    author,
+  };
 
-  categories.forEach((c) => feed.addCategory(c));
+  eleventyConfig.addShortcode('feedsPluginData', function (...what) {
+    console.log(...what);
 
-  feed.addContributor(author);
-
-  eleventyConfig.addGlobalData('feedsPlugin', {
-    data: { collectionName, feed, siteUrl, author, imagePropertyName },
-    populateFeedList: helper.populateFeedList,
+    return {
+      collectionName,
+      feedInfo,
+      siteUrl,
+      author,
+      imagePropertyName,
+      helper,
+    };
   });
 
   eleventyConfig.on('beforeBuild', () => {
     // Run me before the build starts
-
     if (fs.pathExistsSync(`${src}/${dirForFeeds}`) === false) {
-      console.log('copy feeds');
       fs.copySync(`${__dirname}/src/templates/`, `${src}/${dirForFeeds}`);
     }
   });

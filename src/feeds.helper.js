@@ -1,28 +1,29 @@
 const { Feed } = require('feed');
 const { stripHtml } = require('eleventy-plugin-wipdeveloper-tools/src/');
 
-module.exports = { populateFeedList, makeAuthor, makeFeed };
+module.exports = { feed };
 
-function makeAuthor(name, email, url) {
-  return {
-    name: name,
-    email: email,
-    link: url,
-  };
+function feed(feedPlugin, collection) {
+  const feed = makeFeed(feedPlugin.feedInfo, feedPlugin.author);
+
+  return populateFeedList(feedPlugin, feed, collection);
 }
 
 function makeFeed(
-  siteTitle,
-  siteDescription,
-  siteUrl,
-  language,
-  siteImage,
-  favicon,
-  copyright,
+  {
+    siteTitle,
+    siteDescription,
+    siteUrl,
+    language,
+    siteImage,
+    favicon,
+    copyright,
+    categories,
+  },
   author
 ) {
   const url = formatUrlBase(siteUrl);
-  return new Feed({
+  const feed = new Feed({
     title: siteTitle,
     description: siteDescription,
     id: url,
@@ -40,10 +41,15 @@ function makeFeed(
     },
     author: author,
   });
+
+  categories.forEach((c) => feed.addCategory(c));
+
+  return feed;
 }
 
 function populateFeedList(
-  { feed, siteUrl, author, imagePropertyName },
+  { siteUrl, author, imagePropertyName },
+  feed,
   collection
 ) {
   const url = formatUrlBase(siteUrl);
