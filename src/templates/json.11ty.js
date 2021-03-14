@@ -15,7 +15,7 @@ class Json {
 
     return feedsPlugin.helper
       .feed(feedsPlugin, data.collections[feedsPlugin.collectionName])
-      .Json();
+      .json();
   }
 }
 

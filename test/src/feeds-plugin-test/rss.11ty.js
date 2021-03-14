@@ -11,14 +11,11 @@ class Rss {
   }
 
   render(data) {
-    // const feeds = data
-    //   .feedsPluginData()
-    //   .populateFeedList(
-    //     data.feedsPluginData().data,
-    //     data.collections[data.feedsPluginData().data.collectionName]
-    //   );
+    const feedsPlugin = this.feedsPluginData();
 
-    ('return feeds.rss();');
+    return feedsPlugin.helper
+      .feed(feedsPlugin, data.collections[feedsPlugin.collectionName])
+      .rss();
   }
 }
 
