@@ -4,46 +4,20 @@ const helper = require('./src/feeds.helper');
 module.exports = function (
   eleventyConfig,
   {
-    src = '',
+    src,
     collectionName = 'post',
     dirForFeeds = 'feeds-plugin',
-    siteUrl = '',
-    siteTitle = '',
-    siteDescription = '',
-    language = 'en',
-    siteImage = '',
-    favicon = '',
-    copyright = '',
-    categories = [''],
-    authorName = '',
-    authorEmail = '',
-    authorUrl = '',
-    imagePropertyName = '',
+    feedOptions,
+    feedItemMapper,
   }
 ) {
-  let author = { name: authorName, email: authorEmail, link: authorUrl };
-
-  const feedInfo = {
-    siteTitle,
-    siteDescription,
-    siteUrl,
-    language,
-    siteImage,
-    favicon,
-    copyright,
-    categories,
-    author,
-  };
-
   eleventyConfig.addShortcode('feedsPluginData', function (...what) {
     console.log(...what);
 
     return {
       collectionName,
-      feedInfo,
-      siteUrl,
-      author,
-      imagePropertyName,
+      feedOptions,
+      feedItemMapper,
       helper,
     };
   });

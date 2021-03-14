@@ -1,11 +1,11 @@
 // const feedHelper = require('./feeds.helper');
 
-class Json {
+class Rss {
   // or `async data() {`
   // or `get data() {`
   data() {
     return {
-      permalink: 'feed.json',
+      permalink: 'rss.xml',
       eleventyExcludeFromCollections: true,
     };
   }
@@ -13,10 +13,11 @@ class Json {
   render(data) {
     const feedsPlugin = this.feedsPluginData();
 
-    return feedsPlugin.helper
-      .feed(feedsPlugin, data.collections[feedsPlugin.collectionName])
-      .json();
+    return feedsPlugin.helper.feed(
+      feedsPlugin,
+      data.collections[feedsPlugin.collectionName]
+    );
   }
 }
 
-module.exports = Json;
+module.exports = Rss;

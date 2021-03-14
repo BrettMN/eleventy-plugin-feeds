@@ -11,32 +11,44 @@ module.exports = function (eleventyConfig) {
     src: __dirname + `/src/`,
     // Name of collection to add to feed
     collectionName: 'post',
-    // directory that will hold the templates for the feeds.
-    dirForFeeds: 'feeds-plugin-test',
-    // Full site url without a trailing slash.
-    siteUrl: `https://test.com`,
-    // Site title
-    siteTitle: 'Test Site',
-    // Site description
-    siteDescription: 'Fake site description for test rss ',
-    // Language
-    language: 'en',
-    // Full Url to site image
-    siteImage: `https://test.com/full/path/to/image.png`,
-    // Full Favicon path
-    favicon: 'https://test.com/favicon.ico',
-    // Copyright info
-    copyright: `All rights reserved ${new Date().getFullYear()}, Tester McTesterson`,
-    // Categories
-    categories: ['test', 'this'],
-    // Author Name
-    authorName: 'Tester McTesterson',
-    // Author Email
-    authorEmail: 'Tester@McTesterson.co',
-    // Author URl
-    authorUrl: `https://test.com/me`,
-    // Featured image meta tag from each post
-    imagePropertyName: 'featuredImage',
+
+    feedOptions: {
+      // directory that will hold the templates for the feeds.
+      dirForFeeds: 'feeds-plugin-test',
+      // Full site url without a trailing slash.
+      siteUrl: `https://test.com`,
+      // Site title
+      siteTitle: 'Test Site',
+      // Site description
+      siteDescription: 'Fake site description for test rss ',
+      // Language
+      language: 'en',
+      // Full Url to site image
+      siteImage: `https://test.com/full/path/to/image.png`,
+      // Full Favicon path
+      favicon: 'https://test.com/favicon.ico',
+      // Copyright info
+      copyright: `All rights reserved ${new Date().getFullYear()}, Tester McTesterson`,
+      // Categories
+      categories: ['test', 'this'],
+      // Author Name
+      authorName: 'Tester McTesterson',
+      // Author Email
+      authorEmail: 'Tester@McTesterson.co',
+      // Author URl
+      authorUrl: `https://test.com/me`,
+      // Featured image meta tag from each post
+      imagePropertyName: 'featuredImage',
+    },
+    feedItemMapper: function (itemFromCollection) {
+      return {
+        title: itemFromCollection.data.title,
+        description: itemFromCollection.content,
+        url: itemFromCollection.url, // link to the item
+        categories: itemFromCollection.data.tags, // optional - array of item categories
+        date: itemFromCollection.data.date, // any format that js Date can parse.
+      };
+    },
   });
 
   return {

@@ -5,7 +5,7 @@ class Rss {
   // or `get data() {`
   data() {
     return {
-      permalink: 'feed.rss',
+      permalink: 'rss.xml',
       eleventyExcludeFromCollections: true,
     };
   }
@@ -13,9 +13,10 @@ class Rss {
   render(data) {
     const feedsPlugin = this.feedsPluginData();
 
-    return feedsPlugin.helper
-      .feed(feedsPlugin, data.collections[feedsPlugin.collectionName])
-      .rss();
+    return feedsPlugin.helper.feed(
+      feedsPlugin,
+      data.collections[feedsPlugin.collectionName]
+    );
   }
 }
 
