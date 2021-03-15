@@ -1,5 +1,4 @@
 const Podcast = require('podcast');
-const { stripHtml } = require('eleventy-plugin-wipdeveloper-tools/src/');
 
 module.exports = { feed };
 

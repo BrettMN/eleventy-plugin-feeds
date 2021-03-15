@@ -12,8 +12,6 @@ module.exports = function (
   }
 ) {
   eleventyConfig.addShortcode('feedsPluginData', function (...what) {
-    console.log(...what);
-
     return {
       collectionName,
       feedOptions,

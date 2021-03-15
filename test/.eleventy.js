@@ -1,6 +1,8 @@
 // Import plugin
 const feedsPlugin = require('../.eleventy.js');
 
+const { stripHtml } = require('eleventy-plugin-wipdeveloper-tools/src/');
+
 module.exports = function (eleventyConfig) {
   /*
     ## Set up example
@@ -43,10 +45,14 @@ module.exports = function (eleventyConfig) {
     feedItemMapper: function (itemFromCollection) {
       return {
         title: itemFromCollection.data.title,
-        description: itemFromCollection.content,
-        url: itemFromCollection.url, // link to the item
+        description: stripHtml(itemFromCollection.templateContent).substring(
+          0,
+          200
+        ),
+        url: `https://test.com${itemFromCollection.url}`, // link to the item
         categories: itemFromCollection.data.tags, // optional - array of item categories
         date: itemFromCollection.data.date, // any format that js Date can parse.
+        content: itemFromCollection.templateContent, // optional string Long html content for the episode
       };
     },
   });
