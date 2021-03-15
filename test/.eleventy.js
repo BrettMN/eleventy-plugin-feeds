@@ -20,13 +20,13 @@ module.exports = function (eleventyConfig) {
       // Full site url without a trailing slash.
       siteUrl: `https://test.com`,
       // Site title
-      siteTitle: 'Test Site',
+      title: 'Test Site',
       // Site description
-      siteDescription: 'Fake site description for test rss ',
+      description: 'Fake site description for test rss ',
       // Language
       language: 'en',
       // Full Url to site image
-      siteImage: `https://test.com/full/path/to/image.png`,
+      imageUrl: `https://test.com/full/path/to/image.png`,
       // Full Favicon path
       favicon: 'https://test.com/favicon.ico',
       // Copyright info
