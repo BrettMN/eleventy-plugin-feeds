@@ -1,6 +1,6 @@
 {
   "name": "eleventy-plugin-feeds",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An Eleventy plugin to generate feeds for reader apps.",
   "main": ".eleventy.js",
   "directories": {
