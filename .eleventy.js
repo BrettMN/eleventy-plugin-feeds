@@ -11,7 +11,7 @@ module.exports = function (
     feedItemMapper,
   }
 ) {
-  eleventyConfig.addShortcode('feedsPluginData', function (...what) {
+  eleventyConfig.addShortcode('feedsPluginData', function () {
     return {
       collectionName,
       feedOptions,

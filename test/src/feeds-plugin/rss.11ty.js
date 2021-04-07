@@ -13,10 +13,14 @@ class Rss {
   render(data) {
     const feedsPlugin = this.feedsPluginData();
 
-    return feedsPlugin.helper.feed(
-      feedsPlugin,
-      data.collections[feedsPlugin.collectionName]
+    const items = data.collections[feedsPlugin.collectionName].slice(
+      0,
+      feedsPlugin.feedOptions.maxItems
     );
+
+    console.log({ items });
+
+    return feedsPlugin.helper.feed(feedsPlugin, items);
   }
 }
 
