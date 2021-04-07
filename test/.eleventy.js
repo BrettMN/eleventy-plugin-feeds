@@ -41,6 +41,8 @@ module.exports = function (eleventyConfig) {
       authorUrl: `https://test.com/me`,
       // Featured image meta tag from each post
       imagePropertyName: 'featuredImage',
+      // Max number of Items to populate the feed with defaults to 10.
+      maxItems: 1,
     },
     feedItemMapper: function (itemFromCollection) {
       return {
