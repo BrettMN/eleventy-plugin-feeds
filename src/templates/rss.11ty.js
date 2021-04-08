@@ -15,10 +15,9 @@ class Rss {
 
     const maxItems = feedsPlugin.feedOptions.maxItems || 10;
 
-    const items = data.collections[feedsPlugin.collectionName].slice(
-      0,
-      maxItems
-    );
+    const items = data.collections[feedsPlugin.collectionName]
+      .reverse()
+      .slice(0, maxItems);
 
     return feedsPlugin.helper.feed(feedsPlugin, items);
   }
