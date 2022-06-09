@@ -23,6 +23,9 @@ module.exports = function (
   eleventyConfig.on('beforeBuild', () => {
     // Run me before the build starts
     if (fs.pathExistsSync(`${src}/${dirForFeeds}`) === false) {
+      /* TODO: JSFIX could not patch the breaking change:
+      Allow copying broken symlinks 
+      Suggested fix: You can use the exists and existsSync functions https://nodejs.org/api/fs.html#fsexistspath-callback from the fs module to check if a symlink is broken. */
       fs.copySync(`${__dirname}/src/templates/`, `${src}/${dirForFeeds}`);
     }
   });
